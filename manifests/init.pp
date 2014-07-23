@@ -122,6 +122,15 @@ require spark::params
                 content => template("spark/conf/spark-env.sh.erb"),
                 require => Exec['extract']
         }
+	file { "${spark::params::install_dir}/.bash_profile":
+    		mode => 644,
+		owner => 'spark',
+		group => 'spark',
+		ensure => 'file',
+    		content => template("spark/conf/bash_profile.erb"),
+		alias => 'Copy_ENV',
+		require => Exec['extract']
+	}
 
 	
 }
