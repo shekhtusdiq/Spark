@@ -44,6 +44,8 @@ require spark::params
 
 	# Create Installation directory
 	file { "${spark::params::install_dir}":
+    		owner => 'spark',
+		group => 'spark',
     		ensure => "directory",
         	alias => "Base_dir",
 		before => Group["spark"],
