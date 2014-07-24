@@ -26,7 +26,7 @@ require spark::params
   		uid              => '1001',
   		managehome       => true,
   		require          => Group["spark"],
-  		before 		 => Exec['wget'],
+  		before 		 => Package['wget'],
 	}
 
 	# To test param variables in /tmp/test.txt file.
