@@ -48,7 +48,7 @@ require spark::params
 		group => 'spark',
     		ensure => "directory",
         	alias => "Base_dir",
-		before => Group["spark"],
+		require => User["spark"],
 	}
 
 	# Donwload tar file
