@@ -43,11 +43,11 @@ require spark::params
 	}
 
 	# Create Installation directory
-	#file { "${spark::params::install_dir}":
-    	#	ensure => "directory",
-        #	alias => "Base_dir",
-	#	before => Exec["Download_tar"],
-	#}
+	file { "${spark::params::install_dir}":
+    		ensure => "directory",
+        	alias => "Base_dir",
+		before => Group["spark"],
+	}
 
 	# Donwload tar file
 	exec { "wget $get_url}":
