@@ -91,6 +91,8 @@ require spark::params
 	# Copy start-salve script
 	file { "${spark::params::spark_home}/sbin/start-slave.sh":
 		ensure => 'file',
+		owner => 'spark',
+                group => 'spark',
 		content => template("spark/sbin/start-slave.sh.erb"),
 		require => Exec["extract"],
 	}	
@@ -98,6 +100,8 @@ require spark::params
 	# Copy Slave Information
 	file { "${spark::params::spark_home}/conf/slaves":
              	ensure => 'file',
+		owner => 'spark',
+                group => 'spark',
              	content => template("spark/conf/slaves.erb"),
 	   	require => Exec['extract']
 	}
@@ -105,6 +109,8 @@ require spark::params
 	# Copy start-all.sh
 	file { "${spark::params::spark_home}/sbin/start-all.sh":
                 ensure => 'file',
+		owner => 'spark',
+                group => 'spark',
                 content => template("spark/sbin/start-all.sh.erb"),
                 require => Exec['extract']
  	}
@@ -112,6 +118,8 @@ require spark::params
 	# Copy spark-shell
         file { "${spark::params::spark_home}/bin/spark-shell":
                 mode => 755,
+		owner => 'spark',
+                group => 'spark',
 		ensure => 'file',
                 content => template("spark/bin/spark-shell.erb"),
                 require => Exec['extract']
@@ -120,6 +128,8 @@ require spark::params
 	# Copy spark env
         file { "${spark::params::spark_home}/conf/spark-env.sh":
                 mode => 755,
+		owner => 'spark',
+                group => 'spark',
                 ensure => 'file',
                 content => template("spark/conf/spark-env.sh.erb"),
                 require => Exec['extract']
