@@ -53,7 +53,7 @@ require spark::params
 	# Donwload tar file
 	exec { "wget $get_url}":
 		user => 'spark',
-		cwd => "/opt/spark/",
+		cwd => "${spark::params::install_dir}",
 		command => "wget ${spark::params::get_url}",
 		timeout => 1800,
 		tries   => 2,
@@ -65,7 +65,7 @@ require spark::params
 	# Extract spark
 	exec { "tar zxvf spark-1.0.1-bin-hadoop1.tgz -C /opt/spark":
     		user => 'spark',
-		cwd => "/opt/spark/",
+		cwd => "${spark::params::install_dir}",
         	creates => "${spark::params::spark_home}",
 		alias => "extract",
 		require => Exec['Download_tar']
