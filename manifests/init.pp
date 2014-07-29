@@ -116,7 +116,7 @@ require spark::params
  	}
 	
 	# Copy spark-shell
-        file { "${spark::params::spark_home}/bin/spark-shell":
+        file { "${spark::params::spark_bin}/spark-shell":
                 mode => 755,
 		owner => 'spark',
                 group => 'spark',
@@ -126,7 +126,7 @@ require spark::params
         }
  	
 	# Copy spark env
-        file { "${spark::params::spark_home}/conf/spark-env.sh":
+        file { "${spark::params::spark_conf}/spark-env.sh":
                 mode => 755,
 		owner => 'spark',
                 group => 'spark',
