@@ -18,7 +18,7 @@ require spark::params
   		ensure           => 'present',
   		gid              => '1001',
   		groups           => 'spark',
-  		home             => '${install_dir}',
+  		home             => '${spark::params::install_dir}',
   		password         => '$6$5qu6iW.hdIp$N4TF2DYDkVd0S72OBNeUbEMuv8OOxBuUvsOtfDpc3Pe2/0fqdv.7R5lss7anNoNHYXwd49lK.Y3X5iUUEIN57/',
   		password_max_age => '99999',
   		password_min_age => '0',
