@@ -83,7 +83,7 @@ require spark::params
 	exec { "tar zxvf jre-7u55-linux-x64.gz":
 		user => 'spark',
 		cwd => "${spark::params::spark_home}",
-                creates => "${spark::params::spark_home}/jre1.7.0_55",
+                creates => "${spark::params::jre_home}",
                 alias => "Extract_JRE",
                 require => File['Copy_JRE']
         }
